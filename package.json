@@ -1,0 +1,29 @@
+{
+  "name": "@tdoke/create-component",
+  "version": "0.0.1",
+  "description": "A CLI to generate react components boilerplate",
+  "main": "src/index.js",
+  "bin": {
+    "@tdoke/create-component": "bin/create-component",
+    "create-component": "bin/create-component"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "create-component"
+  ],
+  "author": "trushant.doke@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "arg": "^4.1.1",
+    "esm": "^3.2.25",
+    "inquirer": "^7.0.0",
+    "ncp": "^2.0.0",
+    "replace-in-files": "^2.0.3"
+  }
+}
