@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "bin": {
     "@tdoke/create-component": "bin/create-component",
-    "create-component": "bin/create-component"
+    "create-component": "bin/create-component",
+    "cc": "bin/create-component"
   },
   "publishConfig": {
     "access": "public"
