@@ -23,7 +23,6 @@
   "dependencies": {
     "arg": "^4.1.1",
     "esm": "^3.2.25",
-    "inquirer": "^7.0.0",
     "ncp": "^2.0.0",
     "replace-in-files": "^2.0.3"
   }
