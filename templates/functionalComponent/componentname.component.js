@@ -1,5 +1,5 @@
 import React from "react";
-import './componentname.css';
+import './componentname.scss';
 
 const componentname = props => {
   return <div className='componentcssclass-container'>componentname</div>;

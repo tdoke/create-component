@@ -49,8 +49,8 @@ export async function createComponent(options) {
       `${componentPath}/${options.componentName}.component.js`
     );
     await rename(
-      `${componentPath}/componentname.css`,
-      `${componentPath}/${options.componentName}.css`
+      `${componentPath}/componentname.scss`,
+      `${componentPath}/${options.componentName}.scss`
     );
     await replaceInFiles({
       files: componentPath,
