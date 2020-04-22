@@ -6,7 +6,8 @@ function parseArgumentsIntoOptions(rawArgs) {
     {
       "--cc": Boolean,
       "--fc": Boolean,
-      "--cntc": Boolean
+      "--cntfc": Boolean,
+      "--cntcc": Boolean,
     },
     {
       argv: rawArgs.slice(2)
@@ -15,7 +16,8 @@ function parseArgumentsIntoOptions(rawArgs) {
   return {
     classComponent: args["--cc"] || false,
     functionalComponent: args["--fc"] || false,
-    containerComponent: args["--cntc"] || false,
+    containerFunctionalComponent: args["--cntfc"] || false,
+    containerClassComponent: args["--cntcc"] || false,
     componentName: args._[0]
   };
 }

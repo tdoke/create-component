@@ -27,11 +27,23 @@ export async function createComponent(options) {
   );
 
   const componentType = options.classComponent
-    ? "classComponent"
-    : "functionalComponent";
+    ? ["classComponent"]
+    : options.functionalComponent
+    ? ["functionalComponent"]
+    : options.containerClassComponent
+    ? ["classComponent", "containerComponent"]
+    : options.containerFunctionalComponent
+    ? ["functionalComponent", "containerComponent"]
+    : [];
+
   try {
     await access(templateDir, fs.constants.R_OK);
-    await copyTemplateFiles(`${templateDir}/${componentType}`, componentPath);
+    const promises = componentType.map(
+      async cType =>
+        await copyTemplateFiles(`${templateDir}/${cType}`, componentPath)
+    );
+    await Promise.all(promises);
+
     await rename(
       `${componentPath}/componentname.component.js`,
       `${componentPath}/${options.componentName}.component.js`
