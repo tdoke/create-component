@@ -1,10 +1,9 @@
 {
-  "name": "@tdoke/create-component",
+  "name": "create-component",
   "version": "0.0.1",
   "description": "A CLI to generate react components boilerplate",
   "main": "src/index.js",
   "bin": {
-    "@tdoke/create-component": "bin/create-component",
     "create-component": "bin/create-component",
     "cc": "bin/create-component"
   },
