@@ -1,13 +1,13 @@
-import fs from "fs";
-import path from "path";
-import ncp from "ncp";
-import { promisify } from "util";
+const fs = require("fs");
+const path = require("path");
+const ncp = require("ncp");
+const { promisify } = require("util");
+const replaceInFiles = require("replace-in-files");
 
 const mkdir = promisify(fs.mkdir);
 const access = promisify(fs.access);
 const rename = promisify(fs.rename);
 const copy = promisify(ncp);
-const replaceInFiles = require("replace-in-files");
 
 async function copyTemplateFiles(srcDirectory, destDirectory) {
   return await copy(srcDirectory, destDirectory, {
@@ -15,15 +15,14 @@ async function copyTemplateFiles(srcDirectory, destDirectory) {
   });
 }
 
-export async function createComponent(options) {
+async function createComponent(options) {
   const currentDirectory = process.cwd();
   const componentPath = `${currentDirectory}/${options.componentName}`;
   await mkdir(componentPath);
 
-  const currentFileUrl = import.meta.url;
   const templateDir = path.resolve(
-    new URL(currentFileUrl).pathname,
-    "../../templates"
+    __dirname,
+    "../templates"
   );
 
   const componentType = options.classComponent
@@ -65,3 +64,5 @@ export async function createComponent(options) {
     process.exit(1);
   }
 }
+
+module.exports = { createComponent };

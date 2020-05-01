@@ -1,5 +1,5 @@
-import arg from "arg";
-import { createComponent } from "./main";
+const arg = require("arg");
+const { createComponent } = require("./main");
 
 function parseArgumentsIntoOptions(rawArgs) {
   const args = arg(
@@ -21,8 +21,10 @@ function parseArgumentsIntoOptions(rawArgs) {
     componentName: args._[0]
   };
 }
-
-export async function cli(args) {
+ 
+async function cli(args) {
   let options = parseArgumentsIntoOptions(args);
   await createComponent(options);
 }
+
+module.exports = { cli };
