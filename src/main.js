@@ -5,7 +5,8 @@ const {
   rename,
   copy,
   replaceInFiles,
-  fs_constants_ROK
+  fs_constants_ROK,
+  CURRENT_WORKING_DIRECTORY
 } = require("./file-utils");
 
 async function copyTemplateFiles(srcDirectory, destDirectory) {
@@ -15,7 +16,7 @@ async function copyTemplateFiles(srcDirectory, destDirectory) {
 }
 
 async function createComponent(options) {
-  const currentDirectory = process.cwd();
+  const currentDirectory = CURRENT_WORKING_DIRECTORY;
   const componentPath = `${currentDirectory}/${options.componentName}`;
   await mkdir(componentPath);
 
