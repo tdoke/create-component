@@ -5,7 +5,7 @@ const {
   rename,
   copy,
   replaceInFiles,
-  fs_constants_ROK,
+  FS_CONSTANTS_ROK,
   CURRENT_WORKING_DIRECTORY
 } = require("./file-utils");
 
@@ -33,7 +33,7 @@ async function createComponent(options) {
     : [];
 
   try {
-    await access(templateDir, fs_constants_ROK);
+    await access(templateDir, FS_CONSTANTS_ROK);
     const promises = componentType.map(
       async cType =>
         await copyTemplateFiles(`${templateDir}/${cType}`, componentPath)

@@ -8,7 +8,7 @@ const mkdir = promisify(fs.mkdir);
 const access = promisify(fs.access);
 const rename = promisify(fs.rename);
 const copy = promisify(ncp);
-const fs_constants_ROK = fs.constants.R_OK;
+const FS_CONSTANTS_ROK = fs.constants.R_OK;
 const CURRENT_WORKING_DIRECTORY = process.cwd();
 
 module.exports = {
@@ -18,6 +18,6 @@ module.exports = {
   rename,
   copy,
   replaceInFiles,
-  fs_constants_ROK,
+  FS_CONSTANTS_ROK,
   CURRENT_WORKING_DIRECTORY
 };
