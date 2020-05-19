@@ -1,13 +1,12 @@
-const fs = require("fs");
-const path = require("path");
-const ncp = require("ncp");
-const { promisify } = require("util");
-const replaceInFiles = require("replace-in-files");
-
-const mkdir = promisify(fs.mkdir);
-const access = promisify(fs.access);
-const rename = promisify(fs.rename);
-const copy = promisify(ncp);
+const {
+  path,
+  mkdir,
+  access,
+  rename,
+  copy,
+  replaceInFiles,
+  fs_constants_ROK
+} = require("./file-utils");
 
 async function copyTemplateFiles(srcDirectory, destDirectory) {
   return await copy(srcDirectory, destDirectory, {
@@ -20,10 +19,7 @@ async function createComponent(options) {
   const componentPath = `${currentDirectory}/${options.componentName}`;
   await mkdir(componentPath);
 
-  const templateDir = path.resolve(
-    __dirname,
-    "../templates"
-  );
+  const templateDir = path.resolve(__dirname, "../templates");
 
   const componentType = options.classComponent
     ? ["classComponent"]
@@ -36,7 +32,7 @@ async function createComponent(options) {
     : [];
 
   try {
-    await access(templateDir, fs.constants.R_OK);
+    await access(templateDir, fs_constants_ROK);
     const promises = componentType.map(
       async cType =>
         await copyTemplateFiles(`${templateDir}/${cType}`, componentPath)
